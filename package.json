@@ -1,0 +1,33 @@
+{
+  "name": "todo-list-sanp",
+  "version": "1.0.0",
+  "description": "To-Do-List desenvolvido com Node.js e Express capaz de criar, editar, vizualizar e excluir listas de tarefas salvas no banco de dados MongoDB Atlas com autenticação de usuários e documentação SwaggerUI",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samuel-constantino/todo-list-sanp.git"
+  },
+  "keywords": [
+    "rest",
+    "api",
+    "express",
+    "swagger",
+    "unit",
+    "testing",
+    "jwt",
+    "authentication"
+  ],
+  "author": "Samuel Constantino <samuelicapuidados@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/samuel-constantino/todo-list-sanp/issues"
+  },
+  "homepage": "https://github.com/samuel-constantino/todo-list-sanp#readme",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3"
+  }
+}
