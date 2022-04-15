@@ -24,9 +24,8 @@ describe('Testa camada de modelo para registro de usuário', function () {
         sinon.stub(MongoClient, 'connect').resolves(connectionMock);
     });
 
-    after(async function () {
-        await connectionMock.db(DB_NAME).collection('users').drop();
-        // connectionMock.db(DB_NAME).dropDatabase();
+    after(function () {
+        connectionMock.db(DB_NAME).dropDatabase();
         sinon.restore();
     });
 
