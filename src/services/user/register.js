@@ -2,7 +2,6 @@ const md5 = require('md5');
 const userModel = require('../../models/user');
 const { registerValidation } = require('./validations');
 const { ApiError: { conflict } } = require('../../global/apiError');
-const { serialize } = require('../util/serialize');
 
 const register = async (newUser) => {
     const { name, email, password } = newUser;
@@ -18,7 +17,7 @@ const register = async (newUser) => {
         password: md5(password),
     });
 
-    return serialize(result);
+    return result;
 };
 
 module.exports = { register };
