@@ -44,6 +44,32 @@ paths:
         '401':
           $ref: '#/components/responses/Unauthorized'
 
+  /login:
+    post:
+      tags:
+        - Users
+      summary: Entra no sistema.
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#components/requestBodies/Login'
+      responses: 
+        '200':
+          description: Sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Login'
+
+        '400':
+          $ref: '#/components/responses/BadRequest'
+
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+
 components:
   schemas:
     Login:
