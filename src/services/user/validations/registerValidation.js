@@ -24,7 +24,7 @@ const registerSchema = Joi.object({
         .messages({
             'string.email': 'Email precisa está no formato de email.',
             'string.empty': 'Email não pode ser vazio.',
-            'any.required': 'Senha é obrigatória.',
+            'any.required': 'Email é obrigatório.',
         }),
 });
 
