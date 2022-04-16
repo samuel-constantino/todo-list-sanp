@@ -1,4 +1,5 @@
 const { connection } = require('../connection');
+const { serialize } = require('../util/serialize');
 
 const login = async ({ email, password }) => {
     const db = await connection();
@@ -6,7 +7,7 @@ const login = async ({ email, password }) => {
         { email, password },
         { projection: { password: false } },
     );
-    return userFound;
+    return serialize(userFound);
 };
 
 module.exports = { login };
