@@ -4,7 +4,7 @@ const sinon = require('sinon');
 const tasksListController = require('../../../../controllers/tasksList');
 const tasksListService = require('../../../../services/tasksList');
 
-describe('Testa camada de controle para login do usuário', function () {
+describe('Testa camada de controle para busca de listas do usuário', function () {
     const req = {};
     const res = {};
 

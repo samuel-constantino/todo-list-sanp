@@ -28,7 +28,7 @@ describe('Testa camada de serviço do login de usuário', function () {
         });
 
         after(function () {
-            userModel.login.resolves();
+            userModel.login.restore();
             userModel.findByEmail.restore();
         });
 
