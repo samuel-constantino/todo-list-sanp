@@ -90,7 +90,7 @@ paths:
     post:
       tags:
         - TasksList
-      summary: Cria uma tarefa.
+      summary: Cria uma list de tarefa.
       requestBody:
         required: true
         content:
@@ -110,6 +110,88 @@ paths:
 
         '401':
           $ref: '#/components/responses/Unauthorized'
+
+  /tasks/{id}:
+    get:
+      tags:
+        - TasksList
+      summary: Retorna lista de tarefa pelo ID.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID da Tarefa
+          schema:
+            type : string
+      responses:
+        '200':
+          description: Sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#components/schemas/TasksList'
+        '401':
+          $ref: '#components/responses/Unauthorized'
+        '404':
+          $ref: '#components/responses/NotFound'
+
+    put:
+      tags:
+        - TasksList
+      summary: Atualiza uma tarefa.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID da Tarefa
+          schema:
+            type : string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#components/requestBodies/UpdateTasksList'
+      responses: 
+        '200':
+          description: Atualizado com sucesso.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TasksList'
+
+        '400':
+          $ref: '#/components/responses/BadRequest'
+
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+
+    delete:
+      tags:
+        - TasksList
+      summary: Remove lista de tarefa pelo ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID da lista
+          schema:
+            type : string
+            format: uuid
+      responses:
+        '200':
+          description: Sucesso
+          content:
+            application/json:
+              schema: 
+                type: object
+                example:
+                  message: Lista de tarefa removida com sucesso
+        '401':
+          $ref: '#components/responses/Unauthorized'
+
+        '404':
+          $ref: '#components/responses/NotFound'
 
 components:
   schemas:
@@ -183,6 +265,7 @@ components:
         - id
         - userName
         - name
+        - tasks
         - description
         - status
         - priority
@@ -219,6 +302,38 @@ components:
           example:
             important: true
             urgent: true
+
+    UpdateTasksList:
+      type: object
+      properties:
+        name:
+          type: string
+          example: Estudar
+        tasks:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+                example: Estudar
+        description:
+          type: string
+          example: Node.js, Express e Swagger
+        status:
+          type: string
+          example: In progress
+        priority:
+          type: object
+          example:
+            important: true
+            urgent: true
+      required:
+        - name
+        - tasks
+        - description
+        - status
+        - priority
 
     Login:
       type: object
