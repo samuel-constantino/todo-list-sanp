@@ -14,7 +14,7 @@ describe('testa camada de controle para registro de usuário', function () {
             name: 'User Test',
             email: 'test@test.com',
         };
-        before(function () {
+        before(async function () {
             req.body = {
                 name: 'User Test',
                 email: 'test@test.com',
@@ -24,15 +24,15 @@ describe('testa camada de controle para registro de usuário', function () {
             res.status = sinon.stub().returns(res);
             res.json = sinon.stub().returns();
             sinon.stub(userService, 'register').resolves(NEW_USER_RESPONSE);
+
+            await userController.register(req, res);
         });
 
         it('retorna status 201 (created)', async function () {
-            await userController.register(req, res);
             expect(res.status.calledWith(201)).to.be.equal(true);
         });
 
         it('retorna arquivo com formato json', async function () {
-            await userController.register(req, res);
             expect(res.json.calledWith(NEW_USER_RESPONSE)).to.be.equal(true);
         });
     });
