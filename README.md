@@ -173,17 +173,11 @@ Para os requisitos e necessidades dessa aplicação foi escolhido o bando de dad
   
 
 | Código | Descrição |
-
 |---|---|
-
 | `200` | Requisição executada com sucesso (Success).|
-
 | `201` | Registro criado com sucesso (Created).|
-
 | `400` | Dados da requisição mal formados (Bad request).|
-
 | `401` | Usuário não autorizado (Unauthorized).|
-
 | `404` | Registro pesquisado não encontrado (Not found).|
 
   
