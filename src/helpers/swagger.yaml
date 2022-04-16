@@ -177,7 +177,6 @@ paths:
           description: ID da lista
           schema:
             type : string
-            format: uuid
       responses:
         '200':
           description: Sucesso
