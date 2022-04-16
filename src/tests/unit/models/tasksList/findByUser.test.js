@@ -19,7 +19,7 @@ describe('Testa camada de modelo para busca de listas por usuário', function ()
         status: 'In progress',
         priority: { important: true, urgent: true },
     };
-    const LIST_PROPERTIES = ['_id', 'userId', 'name', 'tasks', 'description', 'status', 'priority'];
+    const LIST_PROPERTIES = ['id', 'userId', 'name', 'tasks', 'description', 'status', 'priority'];
     let connectionMock = null;
 
     before(async function () {
@@ -44,11 +44,11 @@ describe('Testa camada de modelo para busca de listas por usuário', function ()
             response = await tasksListModel.findByUser('6226111317c0d522ca2af129');
         });
 
-        it('retorna um documento', async function () {
-            expect(response).to.be.an('object');
+        it('retorna um array', async function () {
+            expect(response).to.be.an('array');
         });
 
-        it('retorna um documento de objetos com as propriedades corretas', async function () {
+        it('retorna um array de objetos com as propriedades corretas', async function () {
             LIST_PROPERTIES.forEach((property) => {
                 expect(response[0]).to.have.property(property);
             });

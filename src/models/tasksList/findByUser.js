@@ -6,7 +6,8 @@ const findByUser = async (id) => {
     const tasksList = await db.collection('tasksLists').find(
         { userId: id },
     ).toArray();
-    return serialize(tasksList);
+    const result = tasksList.map((item) => serialize(item));
+    return result;
 };
 
 module.exports = { findByUser };
