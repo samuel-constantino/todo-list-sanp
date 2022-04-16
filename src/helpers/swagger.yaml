@@ -73,7 +73,7 @@ paths:
   /tasks:
     get:
       tags:
-        - Tasks
+        - TasksList
       summary: Retorna listas de tarefas do usuário
       responses:
         '200':
@@ -86,6 +86,30 @@ paths:
                   $ref: '#components/schemas/TasksList'
         '401':
           $ref: '#components/responses/Unauthorized'
+    
+    post:
+      tags:
+        - TasksList
+      summary: Cria uma tarefa.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#components/requestBodies/TasksList'
+      responses: 
+        '201':
+          description: Criado com sucesso.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TasksList'
+
+        '400':
+          $ref: '#/components/responses/BadRequest'
+
+        '401':
+          $ref: '#/components/responses/Unauthorized'
 
 components:
   schemas:
@@ -172,23 +196,29 @@ components:
         - message
   
   requestBodies:
-    Task:
+    TasksList:
       type: object
       properties:
+        userId:
+          type: string
+          example: 6226111317c0d522ca2af129
         name:
           type: string
-          example: Lavar louça.
+          example: Estudar.
+        tasks:
+          type: array
+          example: [ { name: 'ler documentação' } ]
         description:
           type: string
-          example: Lavar a louça amtes do almoço.
+          example: conceitos de back-end.
         status:
           type: string
-          example: Done
+          example: In progress
         priority:
           type: object
           example:
             important: true
-            urgent: false
+            urgent: true
 
     Login:
       type: object
