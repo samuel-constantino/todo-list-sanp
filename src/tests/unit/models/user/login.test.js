@@ -20,7 +20,7 @@ describe('Testa camada de modelo para login de usuário', function () {
         email: 'test@test.com',
         password: 'test123',
     };
-    const USER_PROPERTIES = ['_id', 'name', 'email'];
+    const USER_PROPERTIES = ['id', 'name', 'email'];
     let connectionMock = null;
 
     before(async function () {
