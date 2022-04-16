@@ -70,6 +70,23 @@ paths:
         '401':
           $ref: '#/components/responses/Unauthorized'
 
+  /tasks:
+    get:
+      tags:
+        - Tasks
+      summary: Retorna listas de tarefas do usuário
+      responses:
+        '200':
+          description: Sucesso
+          content:
+            application/json:
+              schema: 
+                type: array
+                items: 
+                  $ref: '#components/schemas/TasksList'
+        '401':
+          $ref: '#components/responses/Unauthorized'
+
 components:
   schemas:
     Login:
@@ -104,8 +121,8 @@ components:
         email:
           type: string
           example: usuario@email.com
-    
-    TaskList:
+
+    TasksList:
       type: object
       properties:
         id:

@@ -10,7 +10,7 @@ router.use('/swagger', swagger.serve, swagger.setup);
 
 router.use('/register', registerRouter);
 router.use('/login', loginRouter);
-router.use('/task', tasksListRouter);
+router.use('/tasks', tasksListRouter);
 
 router.use(error);
 
