@@ -22,7 +22,7 @@ describe('Testa camada de serviço para busca de listas de usuário', function (
         let tasksList = null;
         before(async function () {
             sinon.stub(tasksListModel, 'findByUser').resolves(LIST_MODEL_RESPONSE);
-            tasksList = await tasksListService.findByUser();
+            tasksList = await tasksListService.findByUser('6226111317c0d522ca2af129');
         });
         after(function () {
             tasksListModel.findByUser.restore();
