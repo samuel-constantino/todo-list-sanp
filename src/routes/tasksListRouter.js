@@ -6,5 +6,6 @@ const { auth } = require('../middlewares');
 const tasksListRouter = express.Router();
 
 tasksListRouter.get('/', auth, rescue(tasksListController.findByUser));
+tasksListRouter.get('/:id', auth, rescue(tasksListController.findById));
 
 module.exports = { tasksListRouter };
