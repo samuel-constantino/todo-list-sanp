@@ -1,3 +1,7 @@
 const { addTasksListValidation } = require('./addTasksListValidation');
+const { updateTasksListValidation } = require('./updateTasksListValidation');
 
-module.exports = { addTasksListValidation };
+module.exports = {
+    addTasksListValidation,
+    updateTasksListValidation,
+};

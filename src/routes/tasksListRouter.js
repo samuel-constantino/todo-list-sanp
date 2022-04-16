@@ -8,5 +8,6 @@ const tasksListRouter = express.Router();
 tasksListRouter.get('/', auth, rescue(tasksListController.findByUser));
 tasksListRouter.get('/:id', auth, rescue(tasksListController.findById));
 tasksListRouter.post('/', auth, rescue(tasksListController.create));
+tasksListRouter.put('/:id', auth, rescue(tasksListController.update));
 
 module.exports = { tasksListRouter };
