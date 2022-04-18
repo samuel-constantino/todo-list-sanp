@@ -104,7 +104,7 @@ mv .env.example .env
   
 
 Ative servidor do MongoDB
-obs: caso não tenha o mongodb instalado, siga as instruções desse [link](https://www.mongodb.com/docs/manual/installation/)
+<br> obs: caso não tenha o mongodb instalado, siga as instruções desse [link](https://www.mongodb.com/docs/manual/installation/)
 
 ```
 
@@ -216,9 +216,9 @@ Para os requisitos e necessidades dessa aplicação foi escolhido o bando de dad
 
   
 
-- Aumentar a cobertura de testes
-
-- Implementar interface gráfica com React
+- Aumentar a cobertura de testes;
+- Implementar envio automático de e-mail ao efetuar cadastro;
+- Implementar interface gráfica com React;
 
   
 
